@@ -6,45 +6,28 @@ class App extends Component {
     super();
 
     this.state = {
-      data:[
-        {
-          type: 'food',
-          name: 'apple'
-        },
-        {
-          type: 'food',
-          name: 'banana'
-        },
-        {
-          type: 'food',
-          name: 'peach'
-        },
-        {
-          type: 'utensil',
-          name: 'fork'
-        },
-        {
-          type: 'utensil',
-          name: 'spoon'
-        },
-        {
-          type: 'utensil',
-          name: 'knife'
-        }
-      ]
+      data:['food','apple','banana','peach','utensil','fork','spoon','spork','knife'],
+      searchInput: ''
     }
   }
 
 
-  search(arr){
-    
+  search(input){
+    this.setState({searchInput: input})
   }
 
 
   render(){
+    let searchDisplay = this.state.data.filter((key) => {
+      return key.includes(this.state.searchInput)
+    })
+    .map ((key, ndx) =>{
+      return <h2 key={ndx}>{key}</h2>;
+    })
     return (
       <div className="App">
-       
+        <input onChange={(e) => this.search(e.target.value)} />
+       {searchDisplay}
       </div>
     );
   }
