@@ -9,11 +9,12 @@ class List extends Component {
 
 
   render(){
-    let displayList = this.props.todo.map((ndx) => {
-      return <Todo todo={ndx} />
+    console.log(this.props.todoList)
+    let displayList = this.props.todoList.map((ndx, key) => {
+      return <Todo listItem={ndx} key={key}/>
     });
     return (
-      <div className="App">
+      <div>
         {displayList}
       </div>
     );

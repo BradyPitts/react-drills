@@ -7,8 +7,16 @@ class Todo extends Component {
   }
 
   render() {
-    return <h4>{this.props.displayList}</h4>;
+    return <h4>{this.props.listItem}</h4>;
   }
 }
 
 export default Todo;
+
+// import React, {Component} from 'react';
+
+// export default class Todo extends Component {
+//   render() {
+//     return <p>{this.props.task}</p>;
+//   }
+// }
